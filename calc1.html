@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>калькулятор</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script type="text/javascript">
+
+    var memory = 0;
+    var result = 0;
+    var o = false;
+    var znach1 = 0;
+    var znach2 = 0;
+    var count = new array;
+    var list;
+    var work;
+
+
+
+    function ravno(){
+   
+    }
+
+    function addValue (v){
+  
+        if (o == true) {
+            document.getElementById("result").innerHTML = '0';
+            o = false;
+        }
+        if (document.getElementById("result").innerHTML == '0') 
+        document.getElementById("result").innerHTML = v;
+        else 
+            document.getElementById("result").innerHTML += v;
+     }
+    function operator(op){
+        o = true;
+        
+
+
+
+           if (list) {
+               work = 1;   
+               list += document.getElementById("result").innerHTML;
+           }
+                else list = document.getElementById("result").innerHTML;
+                    
+            
+            switch (op){
+                case '+' : 
+
+                    list += '+';
+                    break;
+                case '-' :
+
+                    list += '-';
+                    break;
+                case '*' :
+
+                    list += '*';
+                    break;
+                case '*' :
+
+                    list += '*';
+                    break;
+                default:
+                    break;
+            }
+        
+
+        document.getElementById("list").innerHTML = list;
+
+
+
+    }
+    function addPoint(){
+        if (document.getElementById("result").innerHTML.indexOf('.') == -1) document.getElementById("result").innerHTML += '.';
+    }
+    function clearValue(){
+        document.getElementById("result").innerHTML = 0;
+        document.getElementById("list").innerHTML = 0;
+    }
+    function deleteLast(){
+        var str = document.getElementById("result").innerHTML;
+        if (str.length > 1)
+        document.getElementById("result").innerHTML = str.substring(0, str.length - 1);
+        else document.getElementById("result").innerHTML = 0;
+    }
+    function memorySave(){
+        memory = document.getElementById("result").innerHTML;
+    }
+    function memoryRead(){
+        if (memory) document.getElementById("result").innerHTML = memory;
+    }
+    function memoryClear(){
+        if (memory) memory = 0;
+    }
+
+    function x1(){
+        
+        document.getElementById("result").innerHTML =(1 / Number(document.getElementById("result").innerHTML));
+    }
+
+    function mPlus(){
+       memory += getElementById("result").innerHTML;
+    }
+    function mMinus(){
+        memory -= getElementById("result").innerHTML;
+    }
+    function plusMinus(){
+        getElementById("result").innerHTML = Number(getElementById("result").innerHTML) * -1;
+    }
+
+    </script>
+    <style>
+ .button {
+     width: 35px;
+     height: 35px;
+  display: block;
+ 
+  padding: 7px 5px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #111;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 1);
+  background-color: #ccc;
+  background-clip: padding-box;
+  border: 1px solid;
+  border-color: #202020 #1a1a1a #111;
+  border-radius: 2px;
+  background-image: -webkit-linear-gradient(top, #efefef, #777);
+  background-image: -moz-linear-gradient(top, #efefef, #777);
+  background-image: -o-linear-gradient(top, #efefef, #777);
+  background-image: linear-gradient(to bottom, #efefef, #777);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.09), 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.09), 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.button:hover {
+  background-color: #aaaaaa;
+  background-image: -webkit-linear-gradient(top, #ccc, #555);
+  background-image: -moz-linear-gradient(top, #ccc, #555);
+  background-image: -o-linear-gradient(top, #ccc, #555);
+  background-image: linear-gradient(to bottom, #ccc, #555);
+}
+.button:active, .bot5.active {
+  background-color: #b42f32;
+  border-color: #1c1c1c #202020 #222;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.09);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.09);
+}  
+    </style>
+
+
+</head>
+<body>
+    <table border = "1">
+        <tr>
+            <td colspan = "5"> 
+                <div id = "list" style = "width: 195px; border: 1px; text-align: right;">0</div>
+                <div id = "result" style = "width: 195px; border: 1px; text-align: right;">0</div>
+
+            </td> 
+        </tr>
+        <tr>
+            <td><input type="button" class="button" name="MC" value="MC" onclick="startTimer()"/></td>
+            <td><input type="button" class="button" name="MR" value="MR" onclick="memoryRead()" /></td>
+            <td><input type="button" class="button" name="MS" value="MS" onclick="memorySave()" /></td>
+            <td><input type="button" class="button" name="M+" value="M+" onclick="mPlus()" /></td>
+            <td><input type="button" class="button" name="M-" value="M-" onclick="mMinus()" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="button" name="<-" value="<-" onclick="deleteLast()" /></td>
+            <td><input type="button" class="button" name="CE" value="CE" onclick="clearValue()" /></td>
+            <td><input type="button" class="button" name="C" value="C" onclick="clearValue()" /></td>
+            <td><input type="button" class="button" name="±" value="±" onclick="plusMinus()" /></td>
+            <td><input type="button" class="button" name="√" value="√" onclick="startTimer()" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="button" name="7" value="7" onclick="addValue(this.value)" /></td>
+            <td><input type="button" class="button" name="8" value="8" onclick="addValue(this.value)" /></td>
+            <td><input type="button" class="button" name="9" value="9" onclick="addValue(this.value)" /></td>
+            <td><input type="button" class="button" name="/" value="/" onclick="operator(this.value)" /></td>
+            <td><input type="button" class="button" name="%" value="%" onclick="addProc()" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="button" name="4" value="4" onclick="addValue(this.value)" /></td>
+            <td><input type="button" class="button" name="5" value="5" onclick="addValue(this.value)" /></td>
+            <td><input type="button" class="button" name="6" value="6" onclick="addValue(this.value)" /></td>
+            <td><input type="button" class="button" name="*" value="*" onclick="operator(this.value)" /></td>
+            <td><input type="button" class="button" name="1/x" value="1/x" onclick="x1()" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="button" name="1" value="1" onclick="addValue(this.value)" /></td>
+            <td><input type="button" class="button" name="2" value="2" onclick="addValue(this.value)" /></td>
+            <td><input type="button" class="button" name="3" value="3" onclick="addValue(this.value)" /></td>
+            <td><input type="button" class="button" name="-" value="-" onclick="operator(this.value)" /></td>
+            <td rowspan = "2"><input type="button" class="button" style = "height: 76px;" name="=" value="=" onclick="ravno()" /></td>
+        </tr>
+        <tr>
+            <td colspan = "2"><input type="button" class="button" style = "width: 76px;" name="0" value="0" onclick="addValue(this.value)" /></td>
+            <td><input type="button" class="button" name="," value="," onclick="addPoint()" /></td>
+            <td><input type="button" class="button" name="+" value="+" onclick="operator(this.value)" /></td>
+         </tr>
+    </table>
+</body>
+</html>
