@@ -11,8 +11,8 @@
     var o = false;
     var numeric = 0;
     var num = 0;
-    var count = new array;
-
+    var count = 0;
+    var znach1 = new array;
 
 
 
@@ -58,6 +58,7 @@
                 default:
                     break;
             }
+
         
         }
 
@@ -73,7 +74,13 @@
         else {
             document.getElementById("pole").innerHTML += op;
         }
+        znach1[count] = document.getElementById("result").innerHTML;
+        count += 1;
+        document.getElementById("list").innerHTML = list;
 
+        for (var i = 0; i < znach1.length; i++){
+            alert(znach1[i]);
+        }
 
     }
     function addPoint(){

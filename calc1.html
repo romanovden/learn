@@ -9,9 +9,9 @@
     var memory = 0;
     var result = 0;
     var o = false;
-    var znach1 = 0;
+    var znach1 = new array;
     var znach2 = 0;
-    var count = new array;
+    var count = 0;
     var list;
     var work;
 
@@ -44,7 +44,7 @@
            }
                 else list = document.getElementById("result").innerHTML;
                     
-            
+  
             switch (op){
                 case '+' : 
 
@@ -65,11 +65,13 @@
                 default:
                     break;
             }
-        
 
+        
+        znach1[count] = document.getElementById("result").innerHTML;
+        count += 1;
         document.getElementById("list").innerHTML = list;
 
-
+        alert (1);  
 
     }
     function addPoint(){
